@@ -7,7 +7,8 @@ public class GroundCheck : MonoBehaviour
 
     private string groundTag = "Ground";
     private string platformTag = "GroundPlatform";
-    private string moveFloorTag = "FallPratform";
+    private string moveFloorTag = "MoveFloor";
+    private string fallFloorTag = "FallFloor";
     private bool isGround = false;
     private bool isGroundEnter, isGroundStay, isGroundExit;
 
@@ -34,7 +35,7 @@ public class GroundCheck : MonoBehaviour
         {
             isGroundEnter = true;
         }
-        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag))
+        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag || collision.tag == fallFloorTag))
         {
             isGroundEnter = true;
         }
@@ -46,7 +47,7 @@ public class GroundCheck : MonoBehaviour
         {
             isGroundStay = true;
         }
-        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag))
+        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag || collision.tag == fallFloorTag))
         {
             isGroundStay = true;
         }
@@ -58,7 +59,7 @@ public class GroundCheck : MonoBehaviour
         {
             isGroundExit = true;
         }
-        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag))
+        else if (checkPlatformGroud && (collision.tag == platformTag || collision.tag == moveFloorTag || collision.tag == fallFloorTag))
         {
             isGroundExit = true;
         }
