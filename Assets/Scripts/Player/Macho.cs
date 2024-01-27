@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,10 @@ public class Macho : MonoBehaviour
     private float walkSpeed = 1;
     [SerializeField, Header("ジャンプ速度")]
     private float jumpSpeed = 1;
+    [SerializeField, Header("踏みつけジェンプ速度")]
+    private float speed = 1;
+    [SerializeField, Header("Enemy")]
+    private GameObject enemy;
     // ジャンプのサウンドを指定します。
     [SerializeField, Header("ジャンプサウンド")]
     private AudioClip soundOnJump = null;
@@ -80,13 +85,17 @@ public class Macho : MonoBehaviour
         }
     }
 
-    private void OnCllisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Head"))
         {
             Debug.Log("痛い");
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-
+            Destroy(enemy);
+        }
+        else if (collision.gameObject.CompareTag("Damage"))
+        {
+            Destroy(this);
         }
     }
 
@@ -107,5 +116,10 @@ public class Macho : MonoBehaviour
         isJump = true;
         animator.SetBool(jumpId, isJump);
     }
+
+    //public void EnemyDamege()
+    //{
+    //    rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+    //}
 
 }
