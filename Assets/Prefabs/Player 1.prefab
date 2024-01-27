@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 230001245577094348}
   - component: {fileID: 4155313400392042667}
   - component: {fileID: 1330142061020805358}
+  - component: {fileID: 1491793192875224845}
+  - component: {fileID: 2842086109846548624}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5537981531892882737}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000004371139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.163798, y: 1.7649893, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -318,6 +320,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 36f24cba-3734-4bf8-b57d-60af0849a066
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2842086109846548624}
+        m_TargetAssemblyTypeName: MissileFiring, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7b2af976-1e6f-434d-a7f3-54ac4e45c273
+    m_ActionName: Player/Gun[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -359,3 +377,33 @@ MonoBehaviour:
   walkSpeed: 5
   jumpSpeed: 7
   soundOnJump: {fileID: 0}
+--- !u!114 &1491793192875224845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537981531892882737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052a22524dd9b434b801f0ad8401c983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 20
+  pHealth: {fileID: 0}
+  damage: 0
+--- !u!114 &2842086109846548624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537981531892882737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af47ab4c7863c24180c149f73093daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fMoveSpeed: 5
+  MuscleMissile: {fileID: 0}
+  playerObj: {fileID: 5537981531892882737}
