@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 namespace RunGame
 {
@@ -66,6 +69,9 @@ namespace RunGame
         new Rigidbody2D rigidbody;
         AudioSource audioSource;
         Animator animator;
+        Vector2 inputDirection;
+        RunGame2023 inputSys;
+
         // AnimatorのパラメーターID
         static readonly int isRunId = Animator.StringToHash("isRun");
         static readonly int jumpId = Animator.StringToHash("Jump");
@@ -78,6 +84,8 @@ namespace RunGame
             rigidbody = GetComponent<Rigidbody2D>();
             audioSource = GetComponent<AudioSource>();
             animator = GetComponent<Animator>();
+            inputSys = new RunGame2023();
+            inputSys.Enable();
 
             currentState = PlayerState.Walk;
             speed = walkSpeed;
@@ -150,32 +158,24 @@ namespace RunGame
         // Walk状態のフレーム更新処理です。
         private void UpdateForWalkState()
         {
-            // 接地状態の場合
-            if (isGrounded)
+            rigidbody.velocity = new Vector2(inputDirection.x * walkSpeed, rigidbody.velocity.y);
+            //ジャンプ
+            if (Input.GetButtonDown("Jump"))
             {
-                // ジャンプ
-                if (Input.GetButtonDown("Jump"))
-                {
-                    Jump();
-                }
-                // ダッシュ
-                if (Input.GetButtonDown("Fire1"))
-                {
-                    SetRunState();
-                }
+                Jump();
+            }
+            //ダッシュ
+            if (Input.GetButtonDown("Fire1"))
+            {
+                SetRunState();
+            }
 
-                // 等速度運動
-                var velocity = rigidbody.velocity;
-                velocity.x = speed;
-                rigidbody.velocity = velocity;
-            }
-            else
-            {
-                Debug.Log("Walk状態からの落下");
-                Fall();
-            }
         }
 
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            inputDirection = context.ReadValue<Vector2>();
+        }
         // Run状態のフレーム更新処理です。
         private void UpdateForRunState()
         {
