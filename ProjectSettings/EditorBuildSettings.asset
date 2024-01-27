@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameClear.unity
     guid: 6e5d4426344761c4cb81fbd7072ad7a9
+  - enabled: 1
+    path: Assets/Scenes/Macho.unity
+    guid: 6df950d24b036d44e8f6575fa2a5c11f
   m_configObjects: {}
