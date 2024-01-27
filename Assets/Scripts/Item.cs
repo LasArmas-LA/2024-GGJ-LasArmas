@@ -8,6 +8,8 @@ namespace RunGame
         // トリガー内に他のオブジェクトが侵入してきた際に呼び出されます。
         void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log("ヒット");
+
             // Project Settings->Physics 2Dにてプレイヤーとアイテムのみが
             // 判定されるように設定されている。
             // このため侵入してきたオブジェクトについて、プレイヤーであるかを

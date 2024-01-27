@@ -6,7 +6,7 @@ TagManager:
   tags:
   - DeadArea
   - Ground
-  - Head
+  - FallPratform
   layers:
   - Default
   - TransparentFX
