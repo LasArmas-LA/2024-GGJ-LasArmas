@@ -29,7 +29,7 @@ public class MissileFiring : MonoBehaviour
     void Update()
     {
         //ƒ{ƒ^ƒ“‚ğ‰Ÿ‚³‚ê‚½‚ç
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButtonDown(1))
         {
             //’e‚Ì¶¬ 
             GameObject missileInstance = Instantiate(MuscleMissile, transform.position + bulletPoint, Quaternion.identity);

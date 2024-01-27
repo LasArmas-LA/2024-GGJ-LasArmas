@@ -80,6 +80,15 @@ public class Macho : MonoBehaviour
         }
     }
 
+    private void OnCllisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Head"))
+        {
+            Debug.Log("’É‚¢");
+            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+
+        }
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
