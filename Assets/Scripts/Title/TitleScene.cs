@@ -51,7 +51,7 @@ namespace RunGame
             // FadeOutアニメーションが終了するまで1秒待機
             yield return new WaitForSeconds(1);
             // 次のシーンを読み込む
-            SceneManager.LoadScene("Stage 0");
+            SceneManager.LoadScene("MachoTown");
         }
 
         // ゲームを終了します。
