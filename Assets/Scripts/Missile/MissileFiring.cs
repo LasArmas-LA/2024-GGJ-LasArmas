@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MissileFiring : MonoBehaviour
 {
@@ -37,6 +38,16 @@ public class MissileFiring : MonoBehaviour
             StartCoroutine(DestroyMissile(missileInstance));
         }
     }
+
+    //public void Fire(InputAction.CallbackContext context)
+    //{
+    //    //弾の生成 
+    //    GameObject missileInstance = Instantiate(MuscleMissile, transform.position + bulletPoint, Quaternion.identity);
+
+    //    // DestroyMissile コルーチンに生成されたミサイルのインスタンスを渡す
+    //    StartCoroutine(DestroyMissile(missileInstance));
+
+    //}
 
     IEnumerator DestroyMissile(GameObject missileInstance)
     {
