@@ -8,16 +8,27 @@ public class MissileMove : MonoBehaviour
     [SerializeField]
     float MoveSpeed = 20.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //プレイヤーPrefab,オブジェクトの配置
+    [SerializeField]
+    [Tooltip("プレイヤーPrefab、オブジェクトを配置してください")]
+    PlayerHealthUI pHealth;
+
+    //ダメージの処理
+    [SerializeField]
+    float damage;
 
     // Update is called once per frame
     void Update()
     {
         //位置の更新
         transform.Translate(MoveSpeed * Time.deltaTime, 0, 0);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealthUI>().health -= damage;
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace RunGame
 {
     // アイテム獲得数を表示するUIを表します。
-    public class ItemUI : MonoBehaviour
+    public class ProteinUI : MonoBehaviour
     {
         // 数値表示用のスプライト画像を指定します。
         [SerializeField]
