@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
+using UnityEngine.InputSystem;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float speed = 1f;
+    //[SerializeField]
+    //private Macho player;
+    [SerializeField, Header("ジャンプの高さ")]
+    private float jumpSpeed = 1f;
 
     // コンポーネントを参照しておく変数
     Rigidbody2D rb;
@@ -24,4 +31,13 @@ public class Enemy : MonoBehaviour
     {
         transform.position -= speed * transform.right * Time.deltaTime;
     }
-}
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Debug.Log("痛い");
+    //        player.EnemyDamege();
+
+    //    }
+    }
