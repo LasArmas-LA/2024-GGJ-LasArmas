@@ -16,6 +16,8 @@ public class Macho : MonoBehaviour
     private float speed = 1;
     [SerializeField, Header("Enemy")]
     private GameObject enemy;
+    [SerializeField, Header("足")]
+    private GameObject feet;
     // ジャンプのサウンドを指定します。
     [SerializeField, Header("ジャンプサウンド")]
     private AudioClip soundOnJump = null;
@@ -96,6 +98,11 @@ public class Macho : MonoBehaviour
         else if (collision.gameObject.CompareTag("Damage"))
         {
             Destroy(this);
+        }
+        else if (collision.gameObject.CompareTag("Deth"))
+        {
+
+            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         }
     }
 
