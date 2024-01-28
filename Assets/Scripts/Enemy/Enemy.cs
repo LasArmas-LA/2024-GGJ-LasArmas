@@ -32,12 +32,5 @@ public class Enemy : MonoBehaviour
         transform.position -= speed * transform.right * Time.deltaTime;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        Debug.Log("’É‚¢");
-    //        player.EnemyDamege();
 
-    //    }
-    }
+}
