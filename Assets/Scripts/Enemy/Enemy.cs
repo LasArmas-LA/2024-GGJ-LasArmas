@@ -31,4 +31,18 @@ public class Enemy : MonoBehaviour
     {
         transform.position -= speed * transform.right * Time.deltaTime;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // 当たったのがプレイヤーの弾
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            // 自身を消す
+            Destroy(gameObject);
+
+            // 弾も消す
+            Destroy(other.gameObject);
+        }
+    }
+
 }

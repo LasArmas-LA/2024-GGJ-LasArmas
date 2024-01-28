@@ -125,6 +125,7 @@ public class Macho : MonoBehaviour
             isFeet = true;
             //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         }
+
     }
 
     public void OnMove(InputAction.CallbackContext context)

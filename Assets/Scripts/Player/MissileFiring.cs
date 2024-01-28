@@ -39,6 +39,10 @@ public class MissileFiring : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+    }
     //public void Fire(InputAction.CallbackContext context)
     //{
     //    //íeÇÃê∂ê¨ 
