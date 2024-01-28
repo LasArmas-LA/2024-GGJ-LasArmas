@@ -1,3 +1,4 @@
+using RunGame;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,7 +14,9 @@ public class Macho : MonoBehaviour
     [SerializeField, Header("ジャンプ速度")]
     private float jumpSpeed = 1;
     [SerializeField, Header("踏みつけジェンプ速度")]
-    private float speed = 1;
+    private float jSpeed = 1;
+    [SerializeField, Header("足速度")]
+    private float DSpeed = 1;
     [SerializeField, Header("Enemy")]
     private GameObject enemy;
     [SerializeField, Header("足")]
@@ -29,6 +32,7 @@ public class Macho : MonoBehaviour
     RunGame2023 inputSys;
     bool isJump;
     bool isWalk;
+    bool isFeet;
     AudioSource audioSource;
 
     // AnimatorのパラメーターID
@@ -51,6 +55,10 @@ public class Macho : MonoBehaviour
     {
         Walk();
         LookMove();
+        if(isFeet)
+        {
+            feet.transform.position -= DSpeed * transform.right * Time.deltaTime;
+        }
     }
     private void Walk()
     {
@@ -98,11 +106,13 @@ public class Macho : MonoBehaviour
         else if (collision.gameObject.CompareTag("Damage"))
         {
             Destroy(this);
+            //GameOverUI.Show();
         }
-        else if (collision.gameObject.CompareTag("Deth"))
+        else if (collision.gameObject.CompareTag("Death"))
         {
-
-            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            feet.SetActive(true);
+            isFeet = true;
+            //rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         }
     }
 
