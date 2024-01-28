@@ -6,9 +6,13 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class Macho : MonoBehaviour
 {
+    // 初期選択オブジェクトを指定します。
+    [SerializeField]
+    private Selectable firstSelected = null;
     [SerializeField, Header("歩く速度")]
     private float walkSpeed = 1;
     [SerializeField, Header("ジャンプ速度")]
@@ -26,6 +30,8 @@ public class Macho : MonoBehaviour
     private AudioClip soundOnJump = null;
     [SerializeField]
     private GameOverUI gameOverUI;
+    [SerializeField]
+    private AudioSource audio = null;
 
     //　コンポーネントを参照しておく変数
     Animator animator;
@@ -42,6 +48,7 @@ public class Macho : MonoBehaviour
     static readonly int isRunId = Animator.StringToHash("isRun");
     static readonly int jumpId = Animator.StringToHash("isJump");
     static readonly int landingId = Animator.StringToHash("Landing");
+    static readonly int showId = Animator.StringToHash("Show");
 
 
     void Start()
@@ -107,8 +114,10 @@ public class Macho : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Damage"))
         {
+            Debug.Log("fvf");
             Destroy(this);
-            gameOverUI.Show();
+            Show();
+            audio.Stop();
         }
         else if (collision.gameObject.CompareTag("Death"))
         {
@@ -140,5 +149,20 @@ public class Macho : MonoBehaviour
     //{
     //    rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
     //}
+
+    // このUIを表示します。
+    public void Show()
+    {
+        animator.SetTrigger(showId);
+        StartCoroutine(OnShow());
+    }
+
+    IEnumerator OnShow()
+    {
+        // 2秒間待機
+        yield return new WaitForSeconds(2);
+        // YESボタンを選択状態に設定する
+        firstSelected.Select();
+    }
 
 }
