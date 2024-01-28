@@ -1956,7 +1956,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1176000267}
-        m_TargetAssemblyTypeName: TitleScene, Assembly-CSharp
+        m_TargetAssemblyTypeName: RunGame.TitleScene, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:

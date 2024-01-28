@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
+
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
-using UnityEngine.InputSystem;
 
 public class Enemy : MonoBehaviour
 {

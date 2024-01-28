@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title/Title.unity
     guid: 7137009a8b5e704469e06db3ab5ba5dd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MuchoStage/MachoTown.unity
     guid: 97c5527d50ad17340af4782d1ac952f6
   - enabled: 1

@@ -1,11 +1,7 @@
 using RunGame;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class Macho : MonoBehaviour
