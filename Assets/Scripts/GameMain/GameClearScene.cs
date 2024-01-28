@@ -7,9 +7,6 @@ namespace RunGame
     // 『ゲームクリア―』画面のシーンの進行を制御します。
     public class GameClearScene : MonoBehaviour
     {
-        // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
-        bool isLoadable = false;
-
         // コンポーネントを事前に参照しておく変数
         Animator animator;
         // AnimatorパラメーターID
@@ -27,16 +24,8 @@ namespace RunGame
         IEnumerator OnStart()
         {
             yield return new WaitForSeconds(2);
-            isLoadable = true;
-        }
 
-        // 決定操作の際に呼び出され、次のシーンを読み込みます。
-        public void LoadNextScene()
-        {
-            if (isLoadable)
-            {
-                StartCoroutine(OnLoadNextScene());
-            }
+            StartCoroutine(OnLoadNextScene());
         }
 
         IEnumerator OnLoadNextScene()
