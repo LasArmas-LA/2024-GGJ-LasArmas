@@ -36,7 +36,7 @@ namespace RunGame
         }
 
         // 決定操作の際に呼び出され、次のシーンを読み込みます。
-        public void LoadNextScene()
+        private void LoadNextScene()
         {
             if (isLoadable)
             {
@@ -53,6 +53,7 @@ namespace RunGame
             // 次のシーンを読み込む
             SceneManager.LoadScene("MachoTown");
         }
+
 
         // ゲームを終了します。
         public void ExitGame()
