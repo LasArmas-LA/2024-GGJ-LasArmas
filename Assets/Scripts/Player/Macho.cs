@@ -24,6 +24,8 @@ public class Macho : MonoBehaviour
     // ジャンプのサウンドを指定します。
     [SerializeField, Header("ジャンプサウンド")]
     private AudioClip soundOnJump = null;
+    [SerializeField]
+    private GameOverUI gameOverUI;
 
     //　コンポーネントを参照しておく変数
     Animator animator;
@@ -106,7 +108,7 @@ public class Macho : MonoBehaviour
         else if (collision.gameObject.CompareTag("Damage"))
         {
             Destroy(this);
-            //GameOverUI.Show();
+            gameOverUI.Show();
         }
         else if (collision.gameObject.CompareTag("Death"))
         {
