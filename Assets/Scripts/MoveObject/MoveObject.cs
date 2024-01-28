@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class FallPlatforms : MonoBehaviour
+public class MoveObject : MonoBehaviour
 {
     [Header("ˆÚ“®Œo˜H")] public GameObject[] movePoint;
     [Header("‘¬‚³")] public float speed = 1.0f;
+
 
     private Rigidbody2D rb;
     private int nowPoint = 0;
