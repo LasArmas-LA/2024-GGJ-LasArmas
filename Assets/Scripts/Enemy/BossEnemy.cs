@@ -22,18 +22,6 @@ public class BossEnemy : MonoBehaviour
         ClearEnsyutu,
     }
 
-    #region//ê⁄êGîªíË
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == playerTag)
-        {
-            isOn = true;
-        }
-    }
-
-
-    #endregion
-
     // Update is called once per frame
     void Update()
     {
@@ -61,14 +49,6 @@ public class BossEnemy : MonoBehaviour
 
                 break;
 
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == playerTag)
-        {
-            isOn = false;
         }
     }
 }

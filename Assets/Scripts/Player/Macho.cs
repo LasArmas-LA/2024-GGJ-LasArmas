@@ -74,12 +74,6 @@ public class Macho : MonoBehaviour
         rb.velocity = new Vector2(inputDirection.x * walkSpeed, rb.velocity.y);
 
         animator.SetBool(isWalkId, inputDirection.x != 0.0f);
-
-        //if (!isJump)
-        //{
-        //    SetJumpState();
-        //}
-
     }
 
     private void LookMove()
