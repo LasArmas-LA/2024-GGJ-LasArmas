@@ -25,7 +25,7 @@ namespace RunGame
         // Ç±ÇÃUIÇï\é¶ÇµÇ‹Ç∑ÅB
         public void Show()
         {
-            animator.SetTrigger(showId);
+            animator.SetBool(showId, true);
             StartCoroutine(OnShow());
         }
 

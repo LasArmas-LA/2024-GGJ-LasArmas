@@ -30,7 +30,6 @@ public class BossStartUI : MonoBehaviour
     private void Update()
     {
         //プレイヤーが範囲内に入った
-        if (trigger.isOn)
         {
             //上昇しながらフェードインする
             if (cg.transform.position.y < defaltPos.y || cg.alpha < 1.0f)
@@ -46,9 +45,7 @@ public class BossStartUI : MonoBehaviour
                 cg.transform.position = defaltPos;
             }
         }
-
         //プレイヤーが範囲内にいない
-        else
         {
             //下降しながらフェードアウトする
             if (cg.transform.position.y > defaltPos.y - moveDis || cg.alpha > 0.0f)
