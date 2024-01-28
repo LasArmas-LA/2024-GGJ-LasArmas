@@ -38,7 +38,7 @@ public class FallDown : MonoBehaviour
     // °‚ªPlayerTag‚ÉG‚ê‚½‚Æ‚«‚Ìˆ—
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == )
+        if (collision.gameObject.tag == tag )
         {
             floor_touch = true;
         }
